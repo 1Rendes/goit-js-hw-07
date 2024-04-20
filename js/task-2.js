@@ -28,6 +28,10 @@ const gallery = document.querySelector(".gallery");
 const imageUrl = images.map((image) => image.url);
 const imageAlt = images.map((image) => image.alt);
 for (let itr = 0; itr < imageUrl.length; itr++) {
-  const htmlToInsert = `<li><div class="image"><img src="${imageUrl[itr]}" alt="${imageAlt[itr]}" width='320';></div></li>`;
+  const htmlToInsert = `
+  <li>
+    <img class="image" src="${imageUrl[itr]}" alt="${imageAlt[itr]}";>
+  </li>
+  `;
   gallery.insertAdjacentHTML("beforeend", htmlToInsert);
 }
