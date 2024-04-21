@@ -34,7 +34,7 @@ for (const image of images) {
   `;
   totalImagesHtml.push(htmlToAdd);
 }
-gallery.insertAdjacentHTML("beforeend", totalImagesHtml.join(""));
+gallery.innerHTML = totalImagesHtml.join("");
 
 // const gallery = document.querySelector(".gallery");
 // const dataHtml = [];
