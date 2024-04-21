@@ -15,7 +15,8 @@ function createBoxes() {
       const htmlToInsert = `
         <div style="background-Color: ${getRandomHexColor()}; width: ${
         20 + i * 10
-      }px; height: ${20 + i * 10}px; border-radius: 10px; text-align: center">
+      }px;
+         height: ${20 + i * 10}px; border-radius: 10px; text-align: center">
           <p style="margin: 0;">${i}</p>
         </div>
 `;

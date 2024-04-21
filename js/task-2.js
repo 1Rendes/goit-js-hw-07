@@ -25,13 +25,24 @@ const images = [
   },
 ];
 const gallery = document.querySelector(".gallery");
-const imageUrl = images.map((image) => image.url);
-const imageAlt = images.map((image) => image.alt);
-for (let itr = 0; itr < imageUrl.length; itr++) {
-  const htmlToInsert = `
+const totalImagesHtml = [];
+for (const image of images) {
+  const htmlToAdd = `
   <li>
-    <img class="image" src="${imageUrl[itr]}" alt="${imageAlt[itr]}";>
+    <img class="image" src="${image.url}" alt="${image.alt}";>
   </li>
   `;
-  gallery.insertAdjacentHTML("beforeend", htmlToInsert);
+  totalImagesHtml.push(htmlToAdd);
 }
+gallery.insertAdjacentHTML("beforeend", totalImagesHtml.join(""));
+
+// const gallery = document.querySelector(".gallery");
+// const dataHtml = [];
+// for (const image of images) {
+//   const img = document.createElement("img");
+//   img.classList.add("image");
+//   img.src = `${image.url}`;
+//   img.alt = `${image.alt}`;
+//   dataHtml.push(img.outerHTML);
+// }
+// gallery.innerHTML = dataHtml.join("");
