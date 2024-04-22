@@ -1,15 +1,12 @@
 const input = document.querySelector("input");
-let amount;
-input.addEventListener(
-  "change",
-  (event) => (amount = event.currentTarget.valueAsNumber)
-);
 const createButton = document.querySelector("button[data-create]");
 const boxes = document.querySelector("#boxes");
-createButton.addEventListener("click", createBoxes);
-function createBoxes() {
+createButton.addEventListener("click", () => {
+  const amount = input.valueAsNumber;
+  createBoxes(amount);
+});
+function createBoxes(amount) {
   if (amount <= 100 && amount >= 1 && amount / Math.floor(amount) === 1) {
-    //перевірка введеного числа, дробове не приймається.
     const dataHtml = [];
     for (let i = 1; i <= amount; i++) {
       const htmlToInsert = `
@@ -25,11 +22,11 @@ function createBoxes() {
     boxes.innerHTML = dataHtml.join("");
     input.value = "";
   } else {
-    return alert("Insert integer between 1 and 100"); //вибачте, не за тз, але так краще.
+    return alert("Insert integer between 1 and 100");
   }
 }
 const destroyButton = document.querySelector("button[data-destroy]");
-destroyButton.addEventListener("click", destroyBoxes);
+destroyButton.addEventListener("click", () => destroyBoxes());
 function destroyBoxes() {
   boxes.innerHTML = "";
 }
